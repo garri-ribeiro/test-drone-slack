@@ -2,6 +2,7 @@ kind: pipeline
 name: default
 
 
+
 steps:
 - name: notify
   image: plugins/slack-blame
@@ -10,7 +11,7 @@ steps:
       from_secret: slack-token
     channel: test
     success_template: |
-      The build is fixed! Thanks @{{slack.name}}
+      The build is fixed!!!! Thanks @{{slack.name}}
     success_image_attachments:
       - "http://i.imgur.com/TP4PIxc.jpg"
     failure_template: |
