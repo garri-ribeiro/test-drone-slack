@@ -1,0 +1,17 @@
+kind: pipeline
+name: default
+
+steps:
+- name: notify
+  image: plugins/slack-blame
+  settings:
+    token: your-secret-token
+    channel: dev
+    success_template: |
+      The build is fixed! Thanks @{{slack.name}}
+    success_image_attachments:
+      - "http://i.imgur.com/TP4PIxc.jpg"
+    failure_template: |
+      The build is broken! Blame {{slack.name}}
+    failure_image_attachments:
+      - "http://cdn.meme.am/instances/51000361.jpg"
